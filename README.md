@@ -199,4 +199,26 @@ I use SVG to help us see the result. You can find it in `NestTest`.
 
 1. make Nest4J process more parallel.
 
+Grotius update 
+To calculate the final rotation + translation :
+
+ for every xy coordinate,
+ 
+                    double fangle=datas[i][3]*(M_PI/180); 
+                    double xnew=it2->start.x*cos(fangle)-it2->start.y*sin(fangle);
+                    double ynew=it2->start.x*sin(fangle)+it2->start.y*cos(fangle); 
+                    xnew+=datas[i][1];
+                    ynew+=datas[i][2]; 
+                    it2->start.x=xnew;
+                    it2->start.y=ynew;
+
+For confused users,
+The rotation center point is not the polygon center, but coordinate X0,Y0.
+
+Here you see some of my actual results : https://forum.linuxcnc.org/31-cad-cam/39555-nesting-tool-platform-independent
+
+
+
+
+
 
